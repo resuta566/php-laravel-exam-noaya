@@ -13,9 +13,9 @@
                 </b>
                 <!--End Logo icon -->
                 <!-- Logo text -->
-                <span class="logo-text">
+                <span class="logo-text fw-bold" style="color: black">
                     <!-- dark Logo text -->
-                    <img src="plugins/images/logo-text.png" alt="homepage" />
+                    LARAVEL 
                 </span>
             </a>
             <!-- ============================================================== -->

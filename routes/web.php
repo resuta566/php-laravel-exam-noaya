@@ -20,7 +20,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/', function () {
-        // Uses first & second middleware...
+        return view('admin.dashboard');
     });
     
     // Route::resource('photos', PhotoController::class);

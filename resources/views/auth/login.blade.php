@@ -33,6 +33,7 @@
                             <label class="col-md-12 p-0">Password</label>
                             <div class="col-md-12 border-bottom p-0">
                                 <input type="password"
+                                    name="password"
                                     class="form-control p-0 border-0 @error('password') is-invalid @enderror"
                                     required 
                                     autocomplete="current-password">

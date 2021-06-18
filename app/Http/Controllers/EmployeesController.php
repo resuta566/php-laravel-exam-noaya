@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Companies;
+use App\Models\Employees;
 use Illuminate\Http\Request;
 
 class EmployeesController extends Controller
@@ -13,7 +15,8 @@ class EmployeesController extends Controller
      */
     public function index()
     {
-        //
+        $employees = Employees::paginate(10);
+        return view('admin.employees.index', compact('employees'));
     }
 
     /**
@@ -23,7 +26,8 @@ class EmployeesController extends Controller
      */
     public function create()
     {
-        //
+        $companies = Companies::pluck('name', 'id');
+        return view('admin.employees.create', compact('companies'));
     }
 
     /**
@@ -34,7 +38,17 @@ class EmployeesController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'phone' => 'required',
+            'email' => 'required|email|unique:employees',
+        ]);
+
+        $newEmployee = Employees::create($request->except('_token'));
+        return redirect()
+                ->route('employees.show', $newEmployee->id)
+                ->with('success', 'Employee Created');
     }
 
     /**
@@ -43,9 +57,10 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Employees $employee)
     {
-        //
+        $companies = Companies::pluck('name', 'id');
+        return view('admin.employees.show', compact('employee', 'companies'));
     }
 
     /**
@@ -54,9 +69,10 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Employees $employee)
     {
-        //
+        $companies = Companies::pluck('name', 'id');
+        return view('admin.employees.edit', compact('employee' ,'companies'));
     }
 
     /**
@@ -66,9 +82,21 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Employees $employee)
     {
-        //
+        
+        $request->validate([
+            'firstname' => 'required',
+            'lastname' => 'required',
+            'phone' => 'required',
+            'email' => 'required|email|unique:employees,email,'.$employee->id,
+        ]);
+        
+        $employee->update($request->except('_token'));
+
+        return redirect()
+                ->route('employees.show', $employee->id)
+                ->with('success', 'Employee Updated!');
     }
 
     /**
@@ -77,8 +105,14 @@ class EmployeesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Employees $employee)
     {
-        //
+        
+        $deletedEmployeeName = $employee->fullName();
+        $employee->delete();
+
+        return redirect()
+                ->route('employees.index')
+                ->with('success', 'Company '.$deletedEmployeeName.' Deleted');
     }
 }

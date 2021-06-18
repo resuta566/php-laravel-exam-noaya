@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\CompaniesController;
+use App\Http\Controllers\EmployeesController;
+use App\Http\Controllers\HomeController;
+use App\Models\Companies;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,15 +20,12 @@ use Illuminate\Support\Facades\Route;
 
 Auth::routes(['register' => false]);
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth'])->group(function () {
-    Route::get('/', function () {
-        return view('admin.dashboard');
-    });
+    Route::get('/', [HomeController::class, 'index'])->name('dashboard');
     
-    // Route::resource('photos', PhotoController::class);
-    Route::get('/user/profile', function () {
-        // Uses first & second middleware...
-    });
+    Route::resource('companies', CompaniesController::class);
+    Route::resource('employees', EmployeesController::class);
+
 });

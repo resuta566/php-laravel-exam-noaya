@@ -6,21 +6,21 @@
             <ul id="sidebarnav">
                 <!-- User Profile-->
                 <li class="sidebar-item pt-2">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/"
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('dashboard') }}"
                         aria-expanded="false">
                         <i class="fas fa-warehouse" aria-hidden="true"></i>
                         <span class="hide-menu">Dashboard</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/companies"
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('companies.index') }}"
                         aria-expanded="false">
                         <i class="fas fa-building" aria-hidden="true"></i>
                         <span class="hide-menu">Companies</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
-                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="/employees"
+                    <a class="sidebar-link waves-effect waves-dark sidebar-link" href="{{ route('employees.index') }}"
                         aria-expanded="false">
                         <i class="fa fa-user" aria-hidden="true"></i>
                         <span class="hide-menu">Employees</span>

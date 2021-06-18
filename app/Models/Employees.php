@@ -16,4 +16,9 @@ class Employees extends Model
     {
         return $this->belongsTo(Companies::class, 'company_id');
     }
+
+    public function fullName()
+    {
+        return $this->firstname.' '.$this->lastname;
+    }
 }

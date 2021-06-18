@@ -6,50 +6,40 @@
 <!-- ============================================================== -->
 <div class="row justify-content-center">
     <div class="col-lg-4 col-md-12">
-        <div class="white-box analytics-info">
-            <h3 class="box-title">Total Visit</h3>
-            <ul class="list-inline two-part d-flex align-items-center mb-0">
-                <li>
-                    <div id="sparklinedash"><canvas width="67" height="30"
-                            style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
-                    </div>
-                </li>
-                <li class="ms-auto"><span class="counter text-success">659</span></li>
-            </ul>
-        </div>
+        <a href="{{ route('companies.index') }}">
+            <div class="white-box analytics-info">
+                <h3 class="box-title">Companies</h3>
+                <ul class="list-inline two-part d-flex align-items-center mb-0">
+                    <li>
+                        <div id="sparklinedash"><canvas width="67" height="30"
+                                style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                        </div>
+                    </li>
+                    <li class="ms-auto"><span class="counter text-success">{{ $companiesCount }}</span></li>
+                </ul>
+            </div>
+        </a>        
     </div>
     <div class="col-lg-4 col-md-12">
-        <div class="white-box analytics-info">
-            <h3 class="box-title">Total Page Views</h3>
-            <ul class="list-inline two-part d-flex align-items-center mb-0">
-                <li>
-                    <div id="sparklinedash2"><canvas width="67" height="30"
-                            style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
-                    </div>
-                </li>
-                <li class="ms-auto"><span class="counter text-purple">869</span></li>
-            </ul>
-        </div>
-    </div>
-    <div class="col-lg-4 col-md-12">
-        <div class="white-box analytics-info">
-            <h3 class="box-title">Unique Visitor</h3>
-            <ul class="list-inline two-part d-flex align-items-center mb-0">
-                <li>
-                    <div id="sparklinedash3"><canvas width="67" height="30"
-                            style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
-                    </div>
-                </li>
-                <li class="ms-auto"><span class="counter text-info">911</span>
-                </li>
-            </ul>
-        </div>
+        <a href="{{ route('employees.index') }}">
+            <div class="white-box analytics-info">
+                <h3 class="box-title">Employees</h3>
+                <ul class="list-inline two-part d-flex align-items-center mb-0">
+                    <li>
+                        <div id="sparklinedash2"><canvas width="67" height="30"
+                                style="display: inline-block; width: 67px; height: 30px; vertical-align: top;"></canvas>
+                        </div>
+                    </li>
+                    <li class="ms-auto"><span class="counter text-purple">{{ $employeesCount }}</span></li>
+                </ul>
+            </div>
+        </a>
     </div>
 </div>
 <!-- ============================================================== -->
 <!-- PRODUCTS YEARLY SALES -->
 <!-- ============================================================== -->
-<div class="row">
+{{-- <div class="row">
     <div class="col-md-12 col-lg-12 col-sm-12 col-xs-12">
         <div class="white-box">
             <h3 class="box-title">Products Yearly Sales</h3>
@@ -70,11 +60,11 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- ============================================================== -->
 <!-- RECENT SALES -->
 <!-- ============================================================== -->
-<div class="row">
+{{-- <div class="row">
     <div class="col-md-12 col-lg-12 col-sm-12">
         <div class="white-box">
             <div class="d-md-flex mb-3">
@@ -155,11 +145,11 @@
             </div>
         </div>
     </div>
-</div>
+</div> --}}
 <!-- ============================================================== -->
 <!-- Recent Comments -->
 <!-- ============================================================== -->
-<div class="row">
+{{-- <div class="row">
     <!-- .col -->
     <div class="col-md-12 col-lg-8 col-sm-12">
         <div class="card white-box p-0">
@@ -326,5 +316,5 @@
         </div>
     </div>
     <!-- /.col -->
-</div>
+</div> --}}
 @endsection
